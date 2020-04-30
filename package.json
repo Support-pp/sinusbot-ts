@@ -1,6 +1,6 @@
 {
-  "name": "sinusbot-ts",
-  "version": "1.0.1",
+  "name": "@support-pp/sinusbot-ts",
+  "version": "1.0.2",
   "description": "JavaScript library wrapper to communicate with the SinusBot API (HTTP)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
