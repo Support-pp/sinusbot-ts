@@ -1,15 +1,12 @@
 {
   "name": "@support-pp/sinusbot-ts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "JavaScript library wrapper to communicate with the SinusBot API (HTTP)",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/**/*"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "standard-version"
