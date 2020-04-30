@@ -1,0 +1,37 @@
+{
+  "name": "sinusbot-ts",
+  "version": "1.0.0",
+  "description": "JavaScript library wrapper to communicate with the SinusBot API (HTTP)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Support-pp/sinusbot-ts.git"
+  },
+  "keywords": [
+    "sinusbot",
+    "ts",
+    "support-pp",
+    "js"
+  ],
+  "author": "KlexHub UG (haftungsbeschränkt)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Support-pp/sinusbot-ts/issues"
+  },
+  "homepage": "https://github.com/Support-pp/sinusbot-ts#readme",
+  "dependencies": {
+    "@types/node": "^13.13.4",
+    "axios": "^0.19.2",
+    "os": "^0.1.1"
+  }
+}
