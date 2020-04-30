@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Publish
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -12,14 +12,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    # Setup .npmrc file to publish to GitHub Packages
+    - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
+        registry-url: https://registry.npmjs.org/
         scope: '@support-pp' # Defaults to the user or organization that owns the workflow file
     - run: npm install
     - run: tsc
-    - run: npm publish
+    - run: npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
