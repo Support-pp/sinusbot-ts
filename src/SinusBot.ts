@@ -11,7 +11,14 @@ import {
     InstanceSettings,
     InstanceStatus,
     CreateInstance,
-    CreateInstanceResponse
+    CreateInstanceResponse,
+    AudioFile,
+    CreateAudioFile,
+    CreateAudioFileResponse,
+    CreateFolder,
+    CreateFolderReponse,
+    DeleteFileResponse,
+    DeleteFolderResponse
 
 }from "./index"
 import { BotResponse } from './types/bot';
@@ -356,4 +363,127 @@ export class SinusBot {
           }
     }
 
+
+
+
+
+
+
+
+    /***
+     * Read more: https://www.sinusbot.com/api/#api-Filelist-getFiles
+     * 
+     * @description get an array of audio files
+     * @access token
+     */
+    public async getAudioFiles() : Promise<AudioFile[]>{
+      try {
+          const response = await this.axios.get(this.url + `/bot/files`);
+          return response.data as AudioFile[];
+        } catch (error) {
+          // Wrap errors in this packages own error types (abstract the implementation details' types)
+          if (error.response !== undefined) {
+            throw httpErrorWithOriginal(error);
+          } else if (error.request !== undefined) {
+            throw requestErrorWithOriginal(error);
+          } else {
+            throw error;
+          }
+        }
+    }
+
+    /***
+     * Read more: https://www.sinusbot.com/api/#api-Filelist-addUrl
+     * 
+     * @description create a new audio url
+     * @param CreateAudioFile
+     * @access token
+     */
+    public async createAudioFile(cfg: CreateAudioFile) : Promise<CreateAudioFileResponse>{
+      try {
+          const response = await this.axios.post(this.url + `/bot/url`, cfg);
+          return response.data as CreateAudioFileResponse;
+        } catch (error) {
+          // Wrap errors in this packages own error types (abstract the implementation details' types)
+          if (error.response !== undefined) {
+            throw httpErrorWithOriginal(error);
+          } else if (error.request !== undefined) {
+            throw requestErrorWithOriginal(error);
+          } else {
+            throw error;
+          }
+        }
+    }
+
+    /***
+     * Read more: https://www.sinusbot.com/api/#api-Filelist-createFolder
+     * 
+     * @description create an audio folder
+     * @param CreateAudioFile
+     * @access token
+     */
+    public async createAudioFolder(cfg: CreateFolder) : Promise<CreateFolderReponse>{
+      try {
+          const response = await this.axios.post(this.url + `/bot/folders`, cfg);
+          return response.data as CreateFolderReponse;
+        } catch (error) {
+          // Wrap errors in this packages own error types (abstract the implementation details' types)
+          if (error.response !== undefined) {
+            throw httpErrorWithOriginal(error);
+          } else if (error.request !== undefined) {
+            throw requestErrorWithOriginal(error);
+          } else {
+            throw error;
+          }
+        }
+    }
+
+     /***
+     * Read more: https://www.sinusbot.com/api/#api-Filelist-deleteFile
+     * 
+     * @description delete an audio folder
+     * @param uid
+     * @access token
+     */
+    public async removeAudioFolder(uid: string) : Promise<DeleteFolderResponse>{
+      try {
+          const response = await this.axios.delete(this.url + `/bot/files/${uid}`);
+          return response.data as DeleteFolderResponse;
+        } catch (error) {
+          // Wrap errors in this packages own error types (abstract the implementation details' types)
+          if (error.response !== undefined) {
+            throw httpErrorWithOriginal(error);
+          } else if (error.request !== undefined) {
+            throw requestErrorWithOriginal(error);
+          } else {
+            throw error;
+          }
+        }
+    }
+
+    /***
+     * Read more: https://www.sinusbot.com/api/#api-Filelist-deleteFile
+     * You can use removeAudioFile or removeAudioFolder - the same logic.
+     * @description delete an audio folder
+     * @param uid
+     * @access token
+     */
+    public async removeAudioFile(uid: string) : Promise<DeleteFileResponse>{
+      try {
+          const response = await this.axios.delete(this.url + `/bot/files/${uid}`);
+          return response.data as DeleteFileResponse;
+        } catch (error) {
+          // Wrap errors in this packages own error types (abstract the implementation details' types)
+          if (error.response !== undefined) {
+            throw httpErrorWithOriginal(error);
+          } else if (error.request !== undefined) {
+            throw requestErrorWithOriginal(error);
+          } else {
+            throw error;
+          }
+        }
+    }
+
+
+    //ToDo: Uploading file feature. We don't need this. Buut you can open an feature request.
 }
