@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/Support-pp/sinusbot-ts#readme",
   "dependencies": {
-    "@types/node": "^13.13.4",
+    "@types/node": "^14.14.41",
     "axios": "^0.19.2",
     "os": "^0.1.1"
   },
